@@ -27,6 +27,12 @@ namespace SymlinkMaker
 		public MainWindow()
 		{
 			InitializeComponent();
+			var str = "";
+			str += System.Reflection.Assembly.GetExecutingAssembly().GetName().FullName.Split(',')[0];
+			str += " v";
+			str+= System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
+			this.Title = str;
+
 			LinkNametb.Text = "Name";
 			LinkPathtb.Text = "c:\\";
 			TargetPathtb.Text = "c:\\";

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SymlinkMaker"
         mc:Ignorable="d"
-        Title="SymlinkMaker" Height="281.333" Width="532.333">
+        Title="SymlinkMaker" Height="281.333" Width="532.333" Icon="if_link_59479.ico">
 	<Grid>
 		<Label x:Name="label" Content="Link Name:" HorizontalAlignment="Left" VerticalAlignment="Top"/>
 		<TextBox x:Name="LinkNametb" HorizontalAlignment="Left" Height="23" Margin="65,4,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="256" GotFocus="LinkNametb_GotFocus" LostFocus="LinkNametb_LostFocus"/>
