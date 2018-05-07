@@ -139,5 +139,14 @@ namespace SymlinkMaker
 		{
 			UpdateCommandString();
 		}
+
+		private void Makebtn_Copy_Click(object sender, RoutedEventArgs e)
+		{
+			var str = "";
+			str += "SymlinkMaker v 1.0\n";
+			str += "(c)2018 KubaMiszcz\n";
+			str += "mailto: zielonyeufor@gmail.com\n";
+			MessageBox.Show(str, "About", MessageBoxButton.OK, MessageBoxImage.Information,MessageBoxResult.OK);
+		}
 	}
 }

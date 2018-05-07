@@ -10,9 +10,9 @@ using System.Windows;
 [assembly: AssemblyTitle("SymlinkMaker")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("KubaMiszcz, zielonyeufor@gmail.com")]
 [assembly: AssemblyProduct("SymlinkMaker")]
-[assembly: AssemblyCopyright("Copyright ©  2018")]
+[assembly: AssemblyCopyright("Copyright KubaMiszcz ©  2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

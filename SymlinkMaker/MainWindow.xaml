@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SymlinkMaker"
         mc:Ignorable="d"
-        Title="SymlinkMaker" Height="271.333" Width="525">
+        Title="SymlinkMaker" Height="281.333" Width="532.333">
 	<Grid>
 		<Label x:Name="label" Content="Link Name:" HorizontalAlignment="Left" VerticalAlignment="Top"/>
 		<TextBox x:Name="LinkNametb" HorizontalAlignment="Left" Height="23" Margin="65,4,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="256" GotFocus="LinkNametb_GotFocus" LostFocus="LinkNametb_LostFocus"/>
@@ -23,8 +23,8 @@
 		<Label x:Name="label2" Content="MKLINK [[/D] | [/H] | [/J]] Link Target" HorizontalAlignment="Left" Margin="0,83,0,0" VerticalAlignment="Top"/>
 		<Label x:Name="label3" Content="Link - specifies the new symbolic link name." HorizontalAlignment="Left" Margin="0,164,0,0" VerticalAlignment="Top"/>
 		<Button x:Name="Makebtn" Content="Make" HorizontalAlignment="Left" Margin="437,59,0,0" VerticalAlignment="Top" Width="75" Click="MakeLink_OnClick"/>
-		<TextBox x:Name="CommandStringtb" HorizontalAlignment="Left" Height="46" Margin="10,190,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="502" HorizontalContentAlignment="Center"/>
-		<Button x:Name="Makebtn_Copy" Content="Make" HorizontalAlignment="Left" Margin="437,6,0,0" VerticalAlignment="Top" Width="75" Click="MakeLink_OnClick"/>
+		<TextBox x:Name="CommandStringtb" HorizontalAlignment="Left" Height="46" Margin="10,190,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="502" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" IsReadOnly="True"/>
+		<Button x:Name="Makebtn_Copy" Content="About" HorizontalAlignment="Left" Margin="437,6,0,0" VerticalAlignment="Top" Width="75" Click="Makebtn_Copy_Click"/>
 
 	</Grid>
 </Window>
