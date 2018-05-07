@@ -1,0 +1,30 @@
+﻿<Window x:Class="SymlinkMaker.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SymlinkMaker"
+        mc:Ignorable="d"
+        Title="SymlinkMaker" Height="271.333" Width="525">
+	<Grid>
+		<Label x:Name="label" Content="Link Name:" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+		<TextBox x:Name="LinkNametb" HorizontalAlignment="Left" Height="23" Margin="65,4,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="256" GotFocus="LinkNametb_GotFocus" LostFocus="LinkNametb_LostFocus"/>
+		<Label x:Name="label_Copy" Content="Link Path:" HorizontalAlignment="Left" Margin="0,26,0,0" VerticalAlignment="Top"/>
+		<TextBox x:Name="LinkPathtb" HorizontalAlignment="Left" Height="23" Margin="65,30,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="256" GotFocus="LinkPathtb_GotFocus" LostFocus="LinkPathtb_LostFocus"/>
+		<Label x:Name="label_Copy1" Content="LinkTarget:" HorizontalAlignment="Left" Margin="0,53,0,0" VerticalAlignment="Top"/>
+		<TextBox x:Name="TargetPathtb" HorizontalAlignment="Left" Height="23" Margin="65,57,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="256" GotFocus="TargetPathtb_GotFocus" LostFocus="TargetPathtb_LostFocus"/>
+		<Button x:Name="SelectLinkPathbtn" Content="Select" HorizontalAlignment="Left" Margin="326,32,0,0" VerticalAlignment="Top" Width="75" Click="SelectLinkPathbtn_OnClick"/>
+		<CheckBox x:Name="TopMostcb" Content="TopMost" HorizontalAlignment="Left" Margin="443,35,0,0" VerticalAlignment="Top" Click="TopMostcb_Click"/>
+		<Label x:Name="label1" HorizontalAlignment="Left" Margin="22,216,0,0" VerticalAlignment="Top" Height="93"/>
+		<RadioButton x:Name="optionDirectory" Content="/D - Creates a directory symbolic link. Default is a file symbolic link. (Target as subdir of Link)" HorizontalAlignment="Left" Margin="0,109,0,0" VerticalAlignment="Top" Click="SetOptionD" ToolTip="it goes to target as subdir, when back, it goes back to Link"/>
+		<Button x:Name="SelectTargetPathbtn" Content="Select" HorizontalAlignment="Left" Margin="326,59,0,0" VerticalAlignment="Top" Width="75" Click="SelectTargetPathbtn_OnClick"/>
+		<RadioButton x:Name="optionHardlink" Content="/H - Creates a hard link instead of a symbolic link." HorizontalAlignment="Left" Margin="0,129,0,0" VerticalAlignment="Top" Click="SetOptionH"/>
+		<RadioButton x:Name="radioButton1_Copy" Content="/J - Creates a Directory Junction. (Go to target)" HorizontalAlignment="Left" Margin="0,149,0,0" VerticalAlignment="Top" Click="SetOptionJ" IsChecked="True" ToolTip="it redirect to target, when go back you go back to TARGET updir"/>
+		<Label x:Name="label2" Content="MKLINK [[/D] | [/H] | [/J]] Link Target" HorizontalAlignment="Left" Margin="0,83,0,0" VerticalAlignment="Top"/>
+		<Label x:Name="label3" Content="Link - specifies the new symbolic link name." HorizontalAlignment="Left" Margin="0,164,0,0" VerticalAlignment="Top"/>
+		<Button x:Name="Makebtn" Content="Make" HorizontalAlignment="Left" Margin="437,59,0,0" VerticalAlignment="Top" Width="75" Click="MakeLink_OnClick"/>
+		<TextBox x:Name="CommandStringtb" HorizontalAlignment="Left" Height="46" Margin="10,190,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="502" HorizontalContentAlignment="Center"/>
+		<Button x:Name="Makebtn_Copy" Content="Make" HorizontalAlignment="Left" Margin="437,6,0,0" VerticalAlignment="Top" Width="75" Click="MakeLink_OnClick"/>
+
+	</Grid>
+</Window>
