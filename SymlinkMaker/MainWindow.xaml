@@ -23,7 +23,7 @@
 		<Label x:Name="label2" Content="MKLINK [[/D] | [/H] | [/J]] Link Target" HorizontalAlignment="Left" Margin="0,83,0,0" VerticalAlignment="Top"/>
 		<Label x:Name="label3" Content="Link - specifies the new symbolic link name." HorizontalAlignment="Left" Margin="0,164,0,0" VerticalAlignment="Top"/>
 		<Button x:Name="Makebtn" Content="Make" HorizontalAlignment="Left" Margin="437,59,0,0" VerticalAlignment="Top" Width="75" Click="MakeLink_OnClick"/>
-		<TextBox x:Name="CommandStringtb" HorizontalAlignment="Left" Height="46" Margin="10,190,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="502" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" IsReadOnly="True"/>
+		<TextBox x:Name="CommandStringtb" HorizontalAlignment="Left" Height="46" Margin="10,190,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="502" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
 		<Button x:Name="Makebtn_Copy" Content="About" HorizontalAlignment="Left" Margin="437,6,0,0" VerticalAlignment="Top" Width="75" Click="Makebtn_Copy_Click"/>
 
 	</Grid>
