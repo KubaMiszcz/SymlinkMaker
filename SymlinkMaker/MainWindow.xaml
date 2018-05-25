@@ -8,23 +8,24 @@
         Title="SymlinkMaker" Height="281.333" Width="532.333" Icon="if_link_59479.ico">
 	<Grid>
 		<Label x:Name="label" Content="Link Name:" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-		<TextBox x:Name="LinkNametb" HorizontalAlignment="Left" Height="23" Margin="65,4,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="256" GotFocus="LinkNametb_GotFocus" LostFocus="LinkNametb_LostFocus"/>
+		<TextBox x:Name="LinkNametb" Height="23" Margin="65,4,203,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" GotFocus="LinkNametb_GotFocus" LostFocus="LinkNametb_LostFocus" GotKeyboardFocus="LinkNametb_GotFocus" PreviewMouseLeftButtonDown="SelectivelyIgnoreMouseButton"/>
 		<Label x:Name="label_Copy" Content="Link Path:" HorizontalAlignment="Left" Margin="0,26,0,0" VerticalAlignment="Top"/>
-		<TextBox x:Name="LinkPathtb" HorizontalAlignment="Left" Height="23" Margin="65,30,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="256" GotFocus="LinkPathtb_GotFocus" LostFocus="LinkPathtb_LostFocus"/>
+		<TextBox x:Name="LinkPathtb" Height="23" Margin="65,30,203,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" GotFocus="LinkPathtb_GotFocus" LostFocus="LinkPathtb_LostFocus" GotKeyboardFocus="LinkPathtb_GotFocus" PreviewMouseLeftButtonDown="SelectivelyIgnoreMouseButton"/>
 		<Label x:Name="label_Copy1" Content="LinkTarget:" HorizontalAlignment="Left" Margin="0,53,0,0" VerticalAlignment="Top"/>
-		<TextBox x:Name="TargetPathtb" HorizontalAlignment="Left" Height="23" Margin="65,57,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="256" GotFocus="TargetPathtb_GotFocus" LostFocus="TargetPathtb_LostFocus"/>
-		<Button x:Name="SelectLinkPathbtn" Content="Select" HorizontalAlignment="Left" Margin="326,32,0,0" VerticalAlignment="Top" Width="75" Click="SelectLinkPathbtn_OnClick"/>
-		<CheckBox x:Name="TopMostcb" Content="TopMost" HorizontalAlignment="Left" Margin="443,35,0,0" VerticalAlignment="Top" Click="TopMostcb_Click"/>
+		<TextBox x:Name="TargetPathtb" Height="23" Margin="65,57,203,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" GotFocus="TargetPathtb_GotFocus" LostFocus="TargetPathtb_LostFocus" PreviewMouseLeftButtonDown="SelectivelyIgnoreMouseButton"/>
+		<Button x:Name="SelectLinkPathbtn" Content="Select" HorizontalAlignment="Right" Margin="0,32,123,0" VerticalAlignment="Top" Width="75" Click="SelectLinkPathbtn_OnClick"/>
+		<CheckBox x:Name="TopMostcb" Content="TopMost" Margin="0,35,15,0" VerticalAlignment="Top" Click="TopMostcb_Click" HorizontalAlignment="Right" Width="66"/>
 		<Label x:Name="label1" HorizontalAlignment="Left" Margin="22,216,0,0" VerticalAlignment="Top" Height="93"/>
-		<RadioButton x:Name="optionDirectory" Content="/D - Creates a directory symbolic link. Default is a file symbolic link. (Target as subdir of Link)" HorizontalAlignment="Left" Margin="0,109,0,0" VerticalAlignment="Top" Click="SetOptionD" ToolTip="it goes to target as subdir, when back, it goes back to Link"/>
-		<Button x:Name="SelectTargetPathbtn" Content="Select" HorizontalAlignment="Left" Margin="326,59,0,0" VerticalAlignment="Top" Width="75" Click="SelectTargetPathbtn_OnClick"/>
+		<RadioButton x:Name="optionDirectory" Content="/D - Creates a directory symbolic link. Default is a file symbolic link. (Target as subdir of Link)" HorizontalAlignment="Left" Margin="0,109,0,0" VerticalAlignment="Top" Click="SetOptionD" ToolTip="it goes to target as subdir, when back, it goes UP in Linked directory"/>
+		<Button x:Name="SelectTargetPathbtn" Content="Select" HorizontalAlignment="Right" Margin="0,59,123,0" VerticalAlignment="Top" Width="75" Click="SelectTargetPathbtn_OnClick"/>
 		<RadioButton x:Name="optionHardlink" Content="/H - Creates a hard link instead of a symbolic link." HorizontalAlignment="Left" Margin="0,129,0,0" VerticalAlignment="Top" Click="SetOptionH"/>
-		<RadioButton x:Name="radioButton1_Copy" Content="/J - Creates a Directory Junction. (Go to target)" HorizontalAlignment="Left" Margin="0,149,0,0" VerticalAlignment="Top" Click="SetOptionJ" IsChecked="True" ToolTip="it redirect to target, when go back you go back to TARGET updir"/>
+		<RadioButton x:Name="optionJunction" Content="/J - Creates a Directory Junction. (Go to target)" HorizontalAlignment="Left" Margin="0,149,0,0" VerticalAlignment="Top" Click="SetOptionJ" ToolTip="it redirect to target, when go UP you go UP to TARGET updir"/>
 		<Label x:Name="label2" Content="MKLINK [[/D] | [/H] | [/J]] Link Target" HorizontalAlignment="Left" Margin="0,83,0,0" VerticalAlignment="Top"/>
 		<Label x:Name="label3" Content="Link - specifies the new symbolic link name." HorizontalAlignment="Left" Margin="0,164,0,0" VerticalAlignment="Top"/>
-		<Button x:Name="Makebtn" Content="Make" HorizontalAlignment="Left" Margin="437,59,0,0" VerticalAlignment="Top" Width="75" Click="MakeLink_OnClick"/>
-		<TextBox x:Name="CommandStringtb" HorizontalAlignment="Left" Height="46" Margin="10,190,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="502" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-		<Button x:Name="Makebtn_Copy" Content="About" HorizontalAlignment="Left" Margin="437,6,0,0" VerticalAlignment="Top" Width="75" Click="Makebtn_Copy_Click"/>
+		<Button x:Name="Makebtn" Content="Make" HorizontalAlignment="Right" Margin="0,59,12,0" VerticalAlignment="Top" Width="75" Click="MakeLink_OnClick"/>
+		<TextBox x:Name="CommandStringtb" Height="46" Margin="10,190,12,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+		<Button x:Name="Makebtn_Copy" Content="About" Margin="0,6,12,0" VerticalAlignment="Top" Click="Makebtn_Copy_Click" HorizontalAlignment="Right" Width="75"/>
+		<Label Content="editable" HorizontalAlignment="Left" Margin="10,190,0,0" VerticalAlignment="Top" FontSize="8" VerticalContentAlignment="Center" Height="15" Padding="2"/>
 
 	</Grid>
 </Window>

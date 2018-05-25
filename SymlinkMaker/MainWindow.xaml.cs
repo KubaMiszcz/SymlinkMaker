@@ -30,13 +30,14 @@ namespace SymlinkMaker
 			var str = "";
 			str += System.Reflection.Assembly.GetExecutingAssembly().GetName().FullName.Split(',')[0];
 			str += " v";
-			str+= System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
+			str += System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
 			this.Title = str;
 
-			LinkNametb.Text = "Name";
-			LinkPathtb.Text = "c:\\";
-			TargetPathtb.Text = "c:\\";
-			option = "/J";
+			LinkNametb.Text = "SymlinkName";
+			LinkPathtb.Text = @"c:\";
+			TargetPathtb.Text = @"c:\";
+			optionDirectory.IsChecked = true;
+			option = optionDirectory.Content.ToString().Substring(0, 2); // "/J";
 			UpdateCommandString();
 		}
 
@@ -67,8 +68,17 @@ namespace SymlinkMaker
 			dialog.Multiselect = false;
 			if (dialog.ShowDialog() == CommonFileDialogResult.Ok) ;
 			{
-				if (dialog.FileName.Substring(dialog.FileName.Length - 1) != "\\")
-					tb.Text = dialog.FileName + "\\";
+				try
+				{
+					//if (dialog.FileName?.Substring(dialog.FileName.Length - 1) != "\\")
+					tb.Text = dialog.FileName + @"\";
+				}
+				catch (Exception ex)
+				{
+					//tb.Text = dialog.FileName + "\\";
+					//MessageBox.Show(ex.ToString());
+					//throw;
+				}
 			}
 			UpdateCommandString();
 
@@ -76,6 +86,12 @@ namespace SymlinkMaker
 
 		private void MakeLink_OnClick(object sender, RoutedEventArgs e)
 		{
+			if (LinkNametb.Text.Length<1||LinkPathtb.Text.Length<1||TargetPathtb.Text.Length<1)
+			{
+				MessageBox.Show("Fill all required fields!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+				return;
+			}
+
 			var proc1 = new ProcessStartInfo();
 			proc1.UseShellExecute = true;
 			proc1.WorkingDirectory = @"C:\Windows\System32";
@@ -111,24 +127,25 @@ namespace SymlinkMaker
 			else this.Topmost = false;
 		}
 
-		private void ClearTextBox(TextBox textBox)
+		private void InputTextBoxClicked(TextBox textBox)
 		{
-			textBox.Text = "";
+			textBox.SelectAll();
+			//textBox.Text = "";
 		}
 
 		private void TargetPathtb_GotFocus(object sender, RoutedEventArgs e)
 		{
-			ClearTextBox(sender as TextBox);
+			InputTextBoxClicked(sender as TextBox);
 		}
 
 		private void LinkPathtb_GotFocus(object sender, RoutedEventArgs e)
 		{
-			ClearTextBox(sender as TextBox);
+			InputTextBoxClicked(sender as TextBox);
 		}
 
 		private void LinkNametb_GotFocus(object sender, RoutedEventArgs e)
 		{
-			ClearTextBox(sender as TextBox);
+			InputTextBoxClicked(sender as TextBox);
 		}
 
 		private void LinkPathtb_LostFocus(object sender, RoutedEventArgs e)
@@ -152,7 +169,20 @@ namespace SymlinkMaker
 			str += "SymlinkMaker v 1.0\n";
 			str += "(c)2018 KubaMiszcz\n";
 			str += "mailto: zielonyeufor@gmail.com\n";
-			MessageBox.Show(str, "About", MessageBoxButton.OK, MessageBoxImage.Information,MessageBoxResult.OK);
+			MessageBox.Show(str, "About", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
+		}
+
+		private void SelectivelyIgnoreMouseButton(object sender, MouseButtonEventArgs e)
+		{
+			TextBox tb = (sender as TextBox);
+			if (tb != null)
+			{
+				if (!tb.IsKeyboardFocusWithin)
+				{
+					e.Handled = true;
+					tb.Focus();
+				}
+			}
 		}
 	}
 }
