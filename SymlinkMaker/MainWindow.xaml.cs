@@ -33,9 +33,9 @@ namespace SymlinkMaker
 			str += System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
 			this.Title = str;
 
-			LinkNametb.Text = "SymlinkName";
-			LinkPathtb.Text = @"c:\";
 			TargetPathtb.Text = @"c:\";
+			LinkPathtb.Text = @"D:\Desktop\";
+			LinkNametb.Text = "SymlinkName";
 			optionDirectory.IsChecked = true;
 			option = optionDirectory.Content.ToString().Substring(0, 2); // "/J";
 			UpdateCommandString();
@@ -43,12 +43,19 @@ namespace SymlinkMaker
 
 		private void UpdateCommandString()
 		{
+			UpdateSymlinkName();
 			var str = "";
-			str += " mklink ";
+			str += " mklink";
 			str += option;
 			str += " \"" + LinkPathtb.Text + LinkNametb.Text + "\" ";
 			str += " \"" + TargetPathtb.Text + "\"";
 			CommandStringtb.Text = str;
+		}
+
+		private void UpdateSymlinkName()
+		{
+			var strlst = TargetPathtb.Text.Split('\\');
+			LinkNametb.Text = strlst.ElementAt(strlst.Length - 2) + "-Symlink";
 		}
 
 		private void SelectLinkPathbtn_OnClick(object sender, RoutedEventArgs e)
@@ -59,6 +66,7 @@ namespace SymlinkMaker
 		private void SelectTargetPathbtn_OnClick(object sender, RoutedEventArgs e)
 		{
 			SetPath(TargetPathtb);
+
 		}
 
 		private void SetPath(TextBox tb)
@@ -86,20 +94,30 @@ namespace SymlinkMaker
 
 		private void MakeLink_OnClick(object sender, RoutedEventArgs e)
 		{
-			if (LinkNametb.Text.Length<1||LinkPathtb.Text.Length<1||TargetPathtb.Text.Length<1)
+			if (LinkNametb.Text.Length < 1 || LinkPathtb.Text.Length < 1 || TargetPathtb.Text.Length < 1)
 			{
 				MessageBox.Show("Fill all required fields!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
 				return;
 			}
 
-			var proc1 = new ProcessStartInfo();
-			proc1.UseShellExecute = true;
-			proc1.WorkingDirectory = @"C:\Windows\System32";
-			proc1.FileName = @"C:\Windows\System32\cmd.exe";
-			proc1.Verb = "runas";
-			proc1.Arguments = "/c " + CommandStringtb.Text;
-			proc1.WindowStyle = ProcessWindowStyle.Hidden;
-			Process.Start(proc1);
+			try
+			{
+				var proc1 = new ProcessStartInfo();
+				proc1.UseShellExecute = true;
+				proc1.WorkingDirectory = @"C:\Windows\System32";
+				proc1.FileName = @"C:\Windows\System32\cmd.exe";
+				proc1.Verb = "runas";
+				proc1.Arguments = "/c " + CommandStringtb.Text;
+				proc1.WindowStyle = ProcessWindowStyle.Hidden;
+				Process.Start(proc1);
+				MessageBox.Show("Symlink " + LinkNametb.Text + " created.", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
+			}
+			catch (Exception exception)
+			{
+				Console.WriteLine(exception);
+				throw;
+			}
+
 		}
 
 		private void SetOptionD(object sender, RoutedEventArgs e)
@@ -163,7 +181,7 @@ namespace SymlinkMaker
 			UpdateCommandString();
 		}
 
-		private void Makebtn_Copy_Click(object sender, RoutedEventArgs e)
+		private void Aboutbtn_Click(object sender, RoutedEventArgs e)
 		{
 			var str = "";
 			str += "SymlinkMaker v 1.0\n";
